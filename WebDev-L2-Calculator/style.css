@@ -1,0 +1,142 @@
+:root {
+  --bg: #15171c;
+  --panel: #1f222a;
+  --screen-bg: #262a34;
+  --text: #eceae4;
+  --text-dim: #8a8f9c;
+  --key-bg: #2a2e38;
+  --key-bg-hover: #333845;
+  --func: #9aa1b0;
+  --op: #e8a33d;
+  --op-active: #f3b65c;
+  --equals: #4fb286;
+  --equals-hover: #5fc69a;
+  --radius: 10px;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  padding: 24px;
+}
+
+.calc {
+  width: 100%;
+  max-width: 340px;
+  background: var(--panel);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.calc__screen {
+  background: var(--screen-bg);
+  border-radius: var(--radius);
+  padding: 28px 18px 16px;
+  margin-bottom: 16px;
+  text-align: right;
+  font-family: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+  font-size: clamp(28px, 8vw, 40px);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.5px;
+  overflow-x: auto;
+  white-space: nowrap;
+  min-height: 1.3em;
+}
+
+.calc__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.key {
+  appearance: none;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--key-bg);
+  color: var(--text);
+  font-size: 19px;
+  font-weight: 500;
+  padding: 18px 0;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.06s ease;
+}
+
+.key:hover {
+  background: var(--key-bg-hover);
+}
+
+.key:active {
+  transform: scale(0.96);
+}
+
+.key:focus-visible {
+  outline: 2px solid var(--op);
+  outline-offset: 2px;
+}
+
+.key--func {
+  background: transparent;
+  color: var(--func);
+}
+
+.key--func:hover {
+  background: var(--key-bg);
+}
+
+.key--op {
+  background: transparent;
+  color: var(--op);
+  font-size: 22px;
+}
+
+.key--op:hover {
+  background: rgba(232, 163, 61, 0.1);
+}
+
+.key--op.is-active {
+  background: var(--op);
+  color: var(--bg);
+}
+
+.key--equals {
+  background: var(--equals);
+  color: #0d1510;
+  font-weight: 600;
+}
+
+.key--equals:hover {
+  background: var(--equals-hover);
+}
+
+.key--wide {
+  grid-column: span 2;
+  text-align: left;
+  padding-left: 26px;
+}
+
+.calc__screen.is-error {
+  color: #e8694f;
+  font-size: clamp(16px, 5vw, 20px);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #15171c;
+  }
+}
