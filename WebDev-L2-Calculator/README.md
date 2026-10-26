@@ -40,7 +40,4 @@ WebDev-L2-Calculator/
 ```
 
 ## Demo Video
-_Link to be added after recording (title card: Name, Track, Task Title)._
 
-## Notes
-_Any design decisions, known limitations, or bonus features go here._
